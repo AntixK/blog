@@ -3,6 +3,7 @@ layout: post
 title: "Another Trick for the Gradient of Expectation"
 tags: [VI, tricks, gradient]
 comments: true
+math: true
 ---
 
 # Another Trick for the Gradient of Expectation
