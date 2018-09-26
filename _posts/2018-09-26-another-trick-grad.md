@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Another Trick for the Gradient of Expectation"
-tags: [VI, tricks, gradient]
+tags: [VI, tricks, gradient, Deep Learning]
 comments: true
 mathjax: true
 ---
