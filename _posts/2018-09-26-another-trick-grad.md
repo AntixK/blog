@@ -1,3 +1,10 @@
+---
+layout: post
+title: "Another Trick for the Gradient of Expectation"
+tags: [VI, tricks, gradient]
+comments: true
+---
+
 # Another Trick for the Gradient of Expectation
 
 *TL;DR-* Another trick for interchanging the gradient and Expectation of a function under the Gaussian distribution.
