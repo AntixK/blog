@@ -16,21 +16,21 @@ Consider any function $f$ whose expectation is written as a $\mathbb{E}_q[f(\mat
 
 The core idea behind this trick is to write the expectation in terms of the *characteristic function* $G(\mathbf{k})$ of the Gaussian $q$ as
 
-\[
+$$
 \begin{align}
 \mathbb{E}_q[f(\mathbf{x})] &= \frac{1}{(2\pi)^n}\int  G(\mathbf{k}) \int e^{-i\mathbf{k}^T\mathbf{y}}f(\mathbf{y})d\mathbf{y} d\mathbf{k} = \frac{1}{(2\pi)^n}\int \int G(\mathbf{k})e^{-i\mathbf{k}^T\mathbf{y}}f(\mathbf{y})d\mathbf{y} d\mathbf{k}\\
 &= \frac{1}{(2\pi)^n}\int \int e^{-0.5\mathbf{k}^T\Sigma\mathbf{k}+i\mathbf{k}^T\mu}e^{-i\mathbf{k}^T\mathbf{y}}f(\mathbf{y})d\mathbf{y} d\mathbf{k}
 \end{align}
-\]
+$$
 
 Note that the above formula is simply the area under the curve defined by the product of $G(\mathbf{k})$ (Fourier Transform of the Gaussian density function) and the Fourier Transform of $f(\mathbf{x})$. In the above equation, observe that taking the gradient with respect to $\mu$ is equivalent to taking the gradient with respect to $\mathbf{y}$ but with a negative sign. as $\nabla_{\mu}e^{i\mathbf{k}^T(\mu - \mathbf{y})} = - \nabla_{\mathbf{y}}e^{i\mathbf{k}^T(\mu - \mathbf{y})}$. Then, using integration by parts with respect to $\mathbf{y}$, the following equations can be obtained -
 
-\[
+$$
 \begin{align}
 \nabla_\mu \mathbb{E}_q[f(\mathbf{x})] &= \mathbb{E}_q[\nabla_\mathbf{x}f(\mathbf{x})]\\
 \nabla_{\Sigma} \mathbb{E}_q[f(\mathbf{x})] &= \frac{1}{2}\mathbb{E}_q [\nabla_\mathbf{x}^2f(\mathbf{x})]
 \end{align}
-\]
+$$
 
 The second formula can be derived though similar arguments.
 
