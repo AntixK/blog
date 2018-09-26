@@ -15,12 +15,14 @@ I recently came across this elegant trick for computing the gradient of any func
 Consider any function $f$ whose expectation is written as a $\mathbb{E}_q[f(\mathbf{k})]$, where $q = N(\mu, \Sigma)$ is a multivariate Gaussian distribution. Firstly, why this peculiar form and when do I need it? The above form is widely used in Machine Learning - especially in variational methods where $f(x)$ is usually the log-likelihood of your model and the standard method to maximize it is by pushing its lower bound(ELBO) using the another distribution $q$ (usually Gaussian).
 
 The core idea behind this trick is to write the expectation in terms of the *characteristic function* $G(\mathbf{k})$ of the Gaussian $q$ as
+
 \[
 \begin{align}
 \mathbb{E}_q[f(\mathbf{x})] &= \frac{1}{(2\pi)^n}\int  G(\mathbf{k}) \int e^{-i\mathbf{k}^T\mathbf{y}}f(\mathbf{y})d\mathbf{y} d\mathbf{k} = \frac{1}{(2\pi)^n}\int \int G(\mathbf{k})e^{-i\mathbf{k}^T\mathbf{y}}f(\mathbf{y})d\mathbf{y} d\mathbf{k}\\
 &= \frac{1}{(2\pi)^n}\int \int e^{-0.5\mathbf{k}^T\Sigma\mathbf{k}+i\mathbf{k}^T\mu}e^{-i\mathbf{k}^T\mathbf{y}}f(\mathbf{y})d\mathbf{y} d\mathbf{k}
 \end{align}
 \]
+
 Note that the above formula is simply the area under the curve defined by the product of $G(\mathbf{k})$ (Fourier Transform of the Gaussian density function) and the Fourier Transform of $f(\mathbf{x})$. In the above equation, observe that taking the gradient with respect to $\mu$ is equivalent to taking the gradient with respect to $\mathbf{y}$ but with a negative sign. as $\nabla_{\mu}e^{i\mathbf{k}^T(\mu - \mathbf{y})} = - \nabla_{\mathbf{y}}e^{i\mathbf{k}^T(\mu - \mathbf{y})}$. Then, using integration by parts with respect to $\mathbf{y}$, the following equations can be obtained -
 
 \[
@@ -29,6 +31,7 @@ Note that the above formula is simply the area under the curve defined by the pr
 \nabla_{\Sigma} \mathbb{E}_q[f(\mathbf{x})] &= \frac{1}{2}\mathbb{E}_q [\nabla_\mathbf{x}^2f(\mathbf{x})]
 \end{align}
 \]
+
 The second formula can be derived though similar arguments.
 
 **Note:** The above two formulae are called as *Bonnet's Theorem* and *Price's Theorem* respectively and they can also be derived without using the Characteristic functions or Fourier Transforms. For a gist of the derivation, Refer [2].
