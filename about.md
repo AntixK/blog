@@ -8,7 +8,7 @@ Master's Student at Japan Advanced Institute of Science and Technology(JAIST), J
 
 ### Publications
 #### Book(s)
-- Farrago of Concepts in Machine Learning[link](https://antixk.github.io/fcmlbook/)
+- Farrago of Concepts in Machine Learning [Website-link](https://antixk.github.io/fcmlbook/)
 
 
 ### Contact me
