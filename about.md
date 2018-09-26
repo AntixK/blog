@@ -4,12 +4,9 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+Master's Student at Japan Advanced Institute of Science and Technology(JAIST), Japan. I am currently working on Deep Learning - specifically Deep Generative Models and Bayesian Inference.
 
-### More Information
-
-A place to include any other types of information that you'd like to include about yourself.
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[anandkrish@jaist.ac.jp](mailto:anandkrish@jaist.ac.jp)
