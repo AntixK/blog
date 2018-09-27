@@ -6,8 +6,6 @@ comments: true
 mathjax: true
 ---
 
-# Another Trick for the Gradient of Expectation
-
 *TL;DR-* Another trick for interchanging the gradient and Expectation of a function under the Gaussian distribution.
 
 I recently came across this elegant trick for computing the gradient of any function written as an expectation with respect to a Multivariate Gaussian distribution, when I was reading about Natural Gradients.
