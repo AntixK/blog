@@ -6,8 +6,6 @@ comments: true
 mathjax: true
 ---
 
-# Lipschitz Regularization Methods for WGANs
-
 *TL;DR-* Code snippets for various Lipschitz Regularization methods for WGAN - Gradient Clipping, Gradient Penalty, Spectral Normalization etc. in PyTorch.
 
 Wasserstein Generative Adversarial Networks (WGANs) have attracted a lot of research interests for two main reasons -
