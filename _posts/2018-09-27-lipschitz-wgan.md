@@ -27,6 +27,7 @@ $$
 W(p_{data}, q_\theta) = \sup_{\|f\|_{L \leq 1}} \mathbb{E}_{x \sim p_{data}}[f(x)] - \mathbb{E}_{y \sim q_\theta}[f(y)]
 \end{align}
 $$
+
 Essentially, we convert an intractable infinimum to a supremum that can be computed. For a complete derivation of the above duality, refer this [awesome post](https://vincentherrmann.github.io/blog/wasserstein/).
 
 The caveat under concern is that how to make the function $$f$$ ,which is the discriminator in case of WGANs, $$1-$$ Lipschitz?. The following are some of the neat ideas for regularizing *any* Discriminator network to $$1-$$ Lipschitz.
