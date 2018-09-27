@@ -1,3 +1,10 @@
+---
+layout: post
+title: "Lipschitz Regularization Methods for WGANs"
+tags: [GANs, Deep Learning, code]
+comments: true
+mathjax: true
+---
 
 # Lipschitz Regularization Methods for WGANs
 
