@@ -9,8 +9,8 @@ mathjax: true
 *TL;DR-* Code snippets for various Lipschitz Regularization methods for WGAN - Gradient Clipping, Gradient Penalty, Spectral Normalization etc. in PyTorch.
 
 Wasserstein Generative Adversarial Networks (WGANs) have attracted a lot of research interests for two main reasons -
-1) Noting the fundamental difference between the two classes of probability metrics - $$f-$$divergences and IPMs (Integral Probability Metrics) and correctly opts for the widely used IPM metric - the Wasserstein Distance.
-2) Simplifying the computation of Wasserstein distance using the *Kantorovich-Rubinstein Duality* which converts this
+1. Noting the fundamental difference between the two classes of probability metrics - $$f-$$divergences and IPMs (Integral Probability Metrics) and correctly opts for the widely used IPM metric - the Wasserstein Distance.
+2. Simplifying the computation of Wasserstein distance using the *Kantorovich-Rubinstein Duality* which converts this
 
 $$
 \begin{align}
