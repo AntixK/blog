@@ -18,14 +18,18 @@ $$
 The first-order method can be seen as a local *linear approximation* to the loss function; and the second-order methods like that of Newton's improve upon them, using the Hessian matrix as a *quadratic approximation to the local curvature*. The Natural Gradients alleviate this problem by considering the *actual* Riemannian curvature $$\mathbf{G}$$ of the loss landscape. Therefore, *natural gradient* $$\mathbf{d}$$ move along the steepest direction accounting for the local curvature of the loss function.
 
 $$
+\begin{align}
 \mathbf{d} = -\mathbf{G}^{-1}(\boldsymbol \theta)\nabla_{\boldsymbol \theta}L(\boldsymbol \theta)
+\end{align}
 $$
 
 ### Exponential Family
 The Exponential family is a family of probability distributions whose probability density is of the following form -
 
 $$
+\begin{align}
 p(x|\boldsymbol \theta) = h(x)\exp \big [ \eta(\boldsymbol \theta)^T T(x) - A(\eta(\boldsymbol \theta))\big ]
+\end{align}
 $$
 Where $$\eta$$ is called as the natural parameters, $$T(x)$$ is the *sufficient statistic* and $$A$$ is called as the *log-partition function*. The above form is called *Canonical* if $\eta(\boldsymbol \theta) = \boldsymbol \theta$. It turns out that most of the probability distributions that we deal with - such are Gaussian, Categorical, Poisson, Beta, Gamma, Bernoulli, Binomial and so on, all belong to this class. Apart from its direct real-world applications and being computationally simple, the above canonical family has an important feature - the derivatives of the log-partition function provides the various moments of the distribution as -
 $$
@@ -41,7 +45,9 @@ From a probabilistic perspective, the loss function of a *generative model* can 
 
 It turns out that the local **Fisher Information matrix** $$\mathbf{F}$$ provides the complete local Riemannian metric $$\mathbf{G}$$ for such a loss function between two distributions. This is a consequence of the fact that probability distributions are objects on a Riemannian manifold rather than Euclidean space. In a future post, we shall discuss the actual derivation of the above relation. Therefore, the natural gradients can be written as
 $$
+\begin{align}
 \mathbf{d} = -\mathbf{F}^{-1}(\boldsymbol \theta)\nabla_{\boldsymbol \theta}L(\boldsymbol \theta)
+\end{align}
 $$
 
 From the previous section, we know that for a canonical exponential family,
@@ -50,11 +56,15 @@ $$\mathbf{F}(\boldsymbol \theta) = \nabla_{\boldsymbol \theta}^2 A(\boldsymbol \
 and additionally the expectation $\boldsymbol \mu$ of the model distribution $q$ is given by
 
 $$
+\begin{align}
 \boldsymbol \mu = \mathbb{E}_{q(\boldsymbol \theta)}[x] = \nabla_{\boldsymbol \theta}A(\boldsymbol \theta)
+\end{align}
 $$
 Combining the above two equations, we get
 $$
+\begin{align}
 \mathbf{F}(\boldsymbol \theta) = \nabla_{\boldsymbol \theta}\boldsymbol \mu
+\end{align}
 $$
 Therefore, the natural gradient for this model distribution belonging to the exponential family can be rewriten as
 $$
