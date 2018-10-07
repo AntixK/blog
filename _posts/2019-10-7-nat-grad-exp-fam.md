@@ -1,4 +1,10 @@
-# Fascinating connection between Natural Gradients and the Exponential Family
+---
+layout: post
+title: "Fascinating connection between Natural Gradients and the Exponential Family"
+tags: [Gradient descent, Natural gradients]
+comments: true
+mathjax: true
+---
 
 *TL;DR -* The Exponential family provides an elegant and easy method to compute Natural Gradients and thus can be used for Variational Inference.
 
