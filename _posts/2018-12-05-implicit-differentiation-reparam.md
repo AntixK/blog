@@ -1,4 +1,10 @@
-# A Cleverer Trick on top of the Reparametrization Trick
+---
+layout: post
+title: "A Cleverer Trick on top of the Reparametrization Trick"
+tags: []
+comments: true
+mathjax: true
+---
 
 *TL;DR -* Implicit differentiation can lead to an efficient computation of the gradient of reparametrized samples.
 
