@@ -33,17 +33,22 @@ x &= s_{\theta}(x'); \text{ where } x' \sim q(x')\\
 \nabla_{\theta} E_{q(x;\theta)} [f(x)] &= \nabla_{\theta} E_{q(x;\theta)} [f(s_{\theta}(x'))]
 \end{align}
 $$
+
 The gradient of the above expression can thus, be computed (using chain-rule) as
+
 $$
 \nabla_{\theta} E_{q(x;\theta)} [f(s_{\theta}(x'))] = E_{q(x;\theta)} [\nabla_{\theta}f(s_{\theta}(x'))] = E_{q(x;\theta)} [\nabla_{x}f(s_{\theta}(x')) \nabla_{\theta}s_{\theta}(x')]
 $$
 
-Now, if the distribution $$q(x; \boldsymbol \theta)$$ has a location and scale parameters (like the Gaussian distribution) $$\boldsymbol \theta = \{\mu, \sigma\}$$, as then $$s_\theta(x')$$ can be a simple translation and scaling of the form
+Now, if the distribution $$q(x; \boldsymbol \theta)$$ has a location and scale parameters (like the Gaussian distribution)
+$$\boldsymbol \theta = \{\mu, \sigma\}$$, as then $$s_\theta(x')$$ can be a simple translation and scaling of the form
+
 $$
 x = s_{\boldsymbol \theta}(x') = (x' - \mu)/\sigma; \text{ where } x' \sim q(0,1)
 $$
 
 If the distribution $$q(x; \theta)$$$  has a tractable inverse CDF $$Q^{-1}$$, then $$x$$ can be written as
+
 $$
 x = s_{\theta}(x') = Q^{-1}(x'); \text{ where } x' \sim U[0,1]
 $$
@@ -60,6 +65,7 @@ The key insight here is that the parameter-independent sample $x'$ can be writte
 $$
 x' = s_\theta^{-1}(x)
 $$
+
 Now, we can apply *implicit differentiation* technique to the above expression as follows-
 
 $$
@@ -69,6 +75,7 @@ $$
 \nabla_{\theta}x &= -(\nabla_{x}s_{\theta}^{-1}(x))^{-1} \nabla_{\theta}s_{\theta}^{-1}(x)
 \end{align}
 $$
+
 (Note that $$\nabla$$ represents total gradient and $$\nabla_{\theta}$$ represents gradient with respect to $\theta$.)
 Therefore, through implicit differentiation, it is possible to find the gradient of the reparametrized samples $x$.
 
