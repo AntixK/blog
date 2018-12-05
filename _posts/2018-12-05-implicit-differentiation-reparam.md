@@ -37,20 +37,26 @@ $$
 The gradient of the above expression can thus, be computed (using chain-rule) as
 
 $$
+\begin{align}
 \nabla_{\theta} E_{q(x;\theta)} [f(s_{\theta}(x'))] = E_{q(x;\theta)} [\nabla_{\theta}f(s_{\theta}(x'))] = E_{q(x;\theta)} [\nabla_{x}f(s_{\theta}(x')) \nabla_{\theta}s_{\theta}(x')]
+\end{align}
 $$
 
 Now, if the distribution $$q(x; \boldsymbol \theta)$$ has a location and scale parameters (like the Gaussian distribution)
 $$\boldsymbol \theta = \{\mu, \sigma\}$$, as then $$s_\theta(x')$$ can be a simple translation and scaling of the form
 
 $$
+\begin{align}
 x = s_{\boldsymbol \theta}(x') = (x' - \mu)/\sigma; \text{ where } x' \sim q(0,1)
+\end{align}
 $$
 
 If the distribution $$q(x; \theta)$$$  has a tractable inverse CDF $$Q^{-1}$$, then $$x$$ can be written as
 
 $$
+\begin{align}
 x = s_{\theta}(x') = Q^{-1}(x'); \text{ where } x' \sim U[0,1]
+\end{align}
 $$
 
 It is also possible to use both of the above transformations in tandem, justifying the conditions presented above.
@@ -63,7 +69,9 @@ This paper proposes a clever technique for producing low-variance gradients usin
 The key insight here is that the parameter-independent sample $x'$ can be written as
 
 $$
+\begin{align}
 x' = s_\theta^{-1}(x)
+\end{align}
 $$
 
 Now, we can apply *implicit differentiation* technique to the above expression as follows-
