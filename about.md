@@ -7,6 +7,8 @@ Hey there,
 Anand here. I am a Master's Student at Japan Advanced Institute of Science and Technology(JAIST), Japan. I am currently working on Deep Learning - specifically Deep Generative Models and Bayesian Inference.
 
 ### Publications
+#### Tech News
+- Fossbytes [articles-link](https://fossbytes.com/author/krish-anand/)
 #### Book(s)
 - Farrago of Concepts in Machine Learning [Website-link](https://antixk.github.io/fcmlbook/)
 
