@@ -14,5 +14,4 @@ Anand here. I am a Master's Student at Japan Advanced Institute of Science and T
 
 
 ### Contact me
-
-[anandkrish@jaist.ac.jp](mailto:anandkrish@jaist.ac.jp)
+[anandkrish894@gmail.com](mailto:anandkrish894@gmail.com) or [anandkrish@jaist.ac.jp](mailto:anandkrish@jaist.ac.jp)
