@@ -9,9 +9,9 @@ mathjax: true
 *tldr-* A slight change in SGD formulation, in terms of maximization of local approximation, leads to an interesting general connection to NGD via mirror descent.
 
 
-Natural Gradient descent has recently been gaining quite a significant amount of attention (and rightly so!), since it was originally proposed by Shun-ichi Amari way back in the late 1990s. Especially the Approximate Bayesian Inference group at RIKEN-AIP, Tokyo, of which I am currently a part of, have [successfully applied](https://emtiyaz.github.io/publications.html) Natural gradients to a range of complex Bayesian models.
+Natural Gradient descent has recently been gaining quite a significant amount of attention (and rightly so!) since it was originally proposed by Shun-ichi Amari way back in the late 1990s. Especially the Approximate Bayesian Inference group at RIKEN-AIP, Tokyo, of which I am currently a part of, have [successfully applied](https://emtiyaz.github.io/publications.html) Natural gradients to a range of complex Bayesian models.
 
-In this post, I shall discuss one simple yet interesting segue from gradient descent in Euclidean space to Natural gradient descent. In an [earlier blog post](https://antixk.github.io/blog/nat-grad-exp-fam/) , we discussed the relationship between gradient descent and natural gradient descent for exponential family of distributions. In this post, we shall see a more generic connection between them, leveraging the results of Raskutti et. al [2].
+In this post, I shall discuss one simple yet interesting segue from gradient descent in Euclidean space to Natural gradient descent. In an [earlier blog post](https://antixk.github.io/blog/nat-grad-exp-fam/), we discussed the relationship between gradient descent and natural gradient descent for the exponential family of distributions. In this post, we shall see a more generic connection between them, leveraging the results of Raskutti et. al [2].
 
 Consider the standard SGD update with respect to the learning parameters $\boldsymbol{\theta}$ at time step $t+1$ in Euclidean space as follows
 
@@ -30,7 +30,7 @@ $$
  \end{align}
  $$
 
-From a probabilistic perspective, $\boldsymbol \theta$ is the *natural parameter* of the modeling distribution. In other words, the model tries to learn the data using the distribution $q(\boldsymbol{\theta})$, whose natural parameters $\boldsymbol{\theta}$ are learned during training. Intuitively, the above equation is simply a constraint maximization problem with a constraint that $\|\boldsymbol{\theta} - \boldsymbol{\theta_t}\|_2$ is zero, and $-\frac{1}{\beta_t}$ is the Lagrange multiplier. SGD update given above, therefore, works in the natural parameter space. Note that the Euclidean norm in the second term, indicating that the descent happens in the Euclidean space.
+From a probabilistic perspective, $\boldsymbol \theta$ is the *natural parameter* of the modelling distribution. In other words, the model tries to learn the data using the distribution $q(\boldsymbol{\theta})$, whose natural parameters $\boldsymbol{\theta}$ are learned during training. Intuitively, the above equation is simply a constraint maximization problem with a constraint that $\|\boldsymbol{\theta} - \boldsymbol{\theta_t}\|_2$ is zero, and $-\frac{1}{\beta_t}$ is the Lagrange multiplier. SGD update given above, therefore, works in the natural parameter space. Note that the Euclidean norm in the second term, indicating that the descent happens in the Euclidean space.
 
 Now, The natural gradient update is given by
 
@@ -57,10 +57,10 @@ $$
  \end{align}
  $$
 
-Instead of performing the parameter update on the natural parameter space, we are updating its *dual* - the expectation parameters. The now, interesting the connection is that, the above mirror descent update on the mean parameters, is equivalent to performing natural gradient update on the natural parameters. 
+Instead of performing the parameter update on the natural parameter space, we are updating its *dual* - the expectation parameters. The now, interesting the connection is that the above mirror descent update on the mean parameters, is equivalent to performing natural gradient update on the natural parameters. 
 
 #### Why Mirror Descent?
-Mirror descent is a framework that accounts for the geometry of the optimization landscape. It is a generalized framework that incorporates almost all optimization algorithms and over high dimensions. For example, in high dimensions, the local linear or quadratic approximation of the loss surface usually fails. Therefore, it is desirable to employ the actual local geometry of the loss landscape, and mirror descent framework provides an elegant way to exactly that! The second term in the above two maximization formulations (a.k.a proxmitiy function) $-$ the Euclidean norm and the KL divergence $-$ represents the movement of the parameters taking into account the geometry of the landscape. For a more detailed description of the mirror descent method, refer [this document](http://www.princeton.edu/~yc5/ele538_optimization/lectures/mirror_descent.pdf).
+Mirror descent is a framework that accounts for the geometry of the optimization landscape. It is a generalized framework that incorporates almost all optimization algorithms and over high dimensions. For example, in high dimensions, the local linear or quadratic approximation of the loss surface usually fails. Therefore, it is desirable to employ the actual local geometry of the loss landscape, and mirror descent framework provides an elegant way to exactly that! The second term in the above two maximization formulations (a.k.a proximity function) $-$ the Euclidean norm and the KL divergence $-$ represents the movement of the parameters taking into account the geometry of the landscape. For a more detailed description of the mirror descent method, refer [this document](http://www.princeton.edu/~yc5/ele538_optimization/lectures/mirror_descent.pdf).
 
 
 #### Why does this work?
@@ -73,7 +73,7 @@ $$
  \end{align}
  $$
 
-Now, it is clear that there is nothing special about the mirror descent in the mean parameter space. We could have as well said that it is a mirror descent in the natural parameter space. However, the connection is important as provides a much simpler way to perform natural gradeint descent in the mean parameter space.
+Now, it is clear that there is nothing special about the mirror descent in the mean parameter space. We could have as well said that it is a mirror descent in the natural parameter space. However, the connection is important as provides a much simpler way to perform natural gradient descent in the mean parameter space.
 
 Recall the connection between the natural gradients and the Fisher information discussed in a [previous blog post](https://antixk.github.io/blog/nat-grad-exp-fam/).
 
@@ -83,13 +83,13 @@ $$
 \end{align}
 $$
 
-That is, the natural gradient with respect to $\boldsymbol{\theta}$ is simply the gradient of the loss function with respect to the mean parameters $\boldsymbol{\mu}$.  In other words, by combining with equation (4), the natural gradient descent is essentially grasdient descent in mean parameter space. Now, with the help of the above equation, we can directly perform fast natural gradient descent by the following update
+That is, the natural gradient with respect to $\boldsymbol{\theta}$ is simply the gradient of the loss function with respect to the mean parameters $\boldsymbol{\mu}$.  In other words, by combining with equation (4), the natural gradient descent is essentially gradient descent in mean parameter space. Now, with the help of the above equation, we can directly perform fast natural gradient descent by the following update
 
 $$
 \begin{align}
 \boldsymbol \theta_{t+1} = \boldsymbol \theta_t + \beta_t \hat{\nabla}_{\boldsymbol{\mu}}L(\boldsymbol{\mu}_t)
 \end{align}
-
+$$
 
 
 ### Summing Up
@@ -109,5 +109,3 @@ $$
 [2] Raskutti, Garvesh, and Sayan Mukherjee. "The information geometry of mirror descent." IEEE Transactions on Information Theory 61.3 (2015): 1451-1457.
 
 [3] Khan, Mohammad Emtiyaz, et al. "Fast and Scalable Bayesian Deep Learning by Weight-Perturbation in Adam." arXiv preprint arXiv:1806.04854 (2018).
-
-
