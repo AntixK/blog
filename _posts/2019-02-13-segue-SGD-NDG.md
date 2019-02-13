@@ -70,8 +70,10 @@ SGD update given above, therefore, works in the natural parameter space. Note th
 | **Geometry**             | Euclidean Geometry        | Statistical Manifold (Riemannian Geometry) |
 | **Proximity Function**   | Euclidean Norm            | Bergman Divergence (Ex. KL Divergence)     |
 | **Optimization Parameters**  | Natural Parameters $\boldsymbol \theta$ | Mean Parameters $\boldsymbol{\mu}$    |
-| **Equivalence** |Natural Gradient Descent in $\boldsymbol{\theta}$  $\Leftrightarrow$ Mirror Descent in $\boldsymbol{\mu}$ ||
 |======================|===========================|========================= |
+
+
+**Equivalence** : Natural Gradient Descent in $\boldsymbol{\theta}$  $\Leftrightarrow$ Mirror Descent in $\boldsymbol{\mu}$ ||
 
 Apart from the above beautiful relations, there exists yet another equivalence for exponential family of distributions as -
 
