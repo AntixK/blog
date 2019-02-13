@@ -65,13 +65,13 @@ SGD update given above, therefore, works in the natural parameter space. Note th
 
 ### Summing Up
 
-|                                                                                                                                     | Gradient Descent                        | Natural Gradient Descent                   |
-| ----------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ------------------------------------------ |
-| Geometry                                                                                                                            | Euclidean Geometry                      | Statistical Manifold (Riemannian Geometry) |
-| Proximity Function                                                                                                                  | Euclidean Norm                          | Bergman Divergence (Ex. KL Divergence)     |
-| Optimization Parameters                                                                                                             | Natural Parameters $\boldsymbol \theta$ | Mean Parameters $\boldsymbol{\mu}$         |
-| Equivalence <td colspan=2>Natural Gradient Descent in $\boldsymbol{\theta}$  $\Leftrightarrow$ Mirror Descent in $\boldsymbol{\mu}$ |
-|  |
+|                      |: Gradient Descent         |: Natural Gradient Descent                   |
+|--------------------- | ------------------------- | ------------------------------------------ |
+| **Geometry**             | Euclidean Geometry        | Statistical Manifold (Riemannian Geometry) |
+| **Proximity Function**   | Euclidean Norm            | Bergman Divergence (Ex. KL Divergence)     |
+| **Optimization Parameters**  | Natural Parameters $\boldsymbol \theta$ | Mean Parameters $\boldsymbol{\mu}$    |
+| **Equivalence** |Natural Gradient Descent in $\boldsymbol{\theta}$  $\Leftrightarrow$ Mirror Descent in $\boldsymbol{\mu}$ ||
+|======================|===========================|========================= |
 
 Apart from the above beautiful relations, there exists yet another equivalence for exponential family of distributions as -
 
