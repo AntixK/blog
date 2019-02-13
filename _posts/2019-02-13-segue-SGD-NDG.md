@@ -1,8 +1,9 @@
 # Segue from Euclidean Gradient Descent to Natural Gradient Descent
+
 ---
 layout: post
 title: "Segue from Euclidean Gradient Descent to Natural Gradient Descent"
-tags: [VI, tricks, gradient, Deep Learning]
+tags: [Gradient descent, Natural gradients]
 comments: true
 mathjax: true
 ---
@@ -65,6 +66,7 @@ Mirror descent is a framework that accounts for the geometry of the optimization
 SGD update given above, therefore, works in the natural parameter space. Note that the Euclidean norm in the second term, indicating that the descent happens in the Euclidean space.
 
 ### Summing Up
+
 |                                                                                                                                     | Gradient Descent                        | Natural Gradient Descent                   |
 | ----------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ------------------------------------------ |
 | Geometry                                                                                                                            | Euclidean Geometry                      | Statistical Manifold (Riemannian Geometry) |
