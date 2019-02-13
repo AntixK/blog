@@ -29,7 +29,7 @@ $$
  \end{align}
  $$
 
-From a probabilistic perspective, $\boldsymbol \theta$ is the *natural paramter* of the modelling distribution. In other words, the model tries to learn the data using the distribution $q(\boldsymbol{\theta})$, whose natural parameters $\boldsymbol{\theta}$ are learned during training.
+From a probabilistic perspective, $\boldsymbol \theta$ is the *natural paramter* of the modelling distribution. In other words, the model tries to learn the data using the distribution $q(\boldsymbol{\theta})$, whose natural parameters $\boldsymbol{\theta}$ are learned during training. Intuitively, the above equation is simply a constraint maximization problem with a constraint that $\|\boldsymbol{\theta} - \boldsymbol{\theta_t}\|_2$ is zero, and $-\frac{1}{\beta_t}$ is the Lagrange multiplier.
 
 #### Proximity Function
 In the above equation, the Euclidean norm is actually a *proximity function* that measures the discrepancy of the loss function and its linear approximation with respect to the local geometry. This is quadratic term is exact for convex landscapes while provides a somewhat decent approximation for others. 
