@@ -1,5 +1,3 @@
-# Segue from Euclidean Gradient Descent to Natural Gradient Descent
-
 ---
 layout: post
 title: "Segue from Euclidean Gradient Descent to Natural Gradient Descent"
