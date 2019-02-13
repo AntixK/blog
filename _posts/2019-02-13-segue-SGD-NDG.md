@@ -1,4 +1,11 @@
 # Segue from Euclidean Gradient Descent to Natural Gradient Descent
+---
+layout: post
+title: "Segue from Euclidean Gradient Descent to Natural Gradient Descent"
+tags: [VI, tricks, gradient, Deep Learning]
+comments: true
+mathjax: true
+---
 
 *tldr-* A slight change in SGD formulation, in terms of maximation of local approximation, leads to an interesting general connection to NGD via mirror descent.
 
@@ -10,13 +17,17 @@ In this post, I shall discuss one simple yet interesting segue from gradient des
 Consider the standard SGD update with respect to the learning parameters $\boldsymbol{\theta}$ at time step $t+1$ in Euclidean space as follows
 
 $$
+\begin{align}
 \boldsymbol \theta_{t+1} = \boldsymbol \theta_t + \beta_t \hat{\nabla}_{\boldsymbol{\theta}}L(\boldsymbol{\theta}_t)
+ \end{align}
 $$
 Where $\hat{\nabla}_{\boldsymbol{\theta}}L(\boldsymbol{\theta}_t)$ is the gradient of the loss function with respect to the parmaters and $\beta_t$ is the current learning rate. The above SGD udpate can be reformulated as a local approximation maximiation as follows -
 
 $$
+\begin{align}
 \boldsymbol{\theta}_{t+1} = \underset{\boldsymbol{\theta}\in \Theta}{\mathsf{argmax}} \big\langle \boldsymbol \theta, \hat{\nabla}_{\boldsymbol{\theta}}L(\boldsymbol{\theta}_t) \big \rangle - \frac{1}{2\beta_t}
  \| \boldsymbol{\theta} - \boldsymbol{\theta}_t\|_2^2
+ \end{align}
  $$
 
 From a probabilistic perspective, $\boldsymbol \theta$ is the *natural paramter* of the modelling distribution. In other words, the model tries to learn the data using the distribution $q(\boldsymbol{\theta})$, whose natural parameters $\boldsymbol{\theta}$ are learned during training.
@@ -30,8 +41,10 @@ From a different perspective, the proximity function can also be viewed as a pri
 We rewrite the above maximization problem in terms of the expectation(mean) parameters of the distribution $q$, and use the KL divergence for the proximity function, to get the following mirror descent formulation.
 
 $$
+\begin{align}
 \boldsymbol{\mu}_{t+1} = \underset{\boldsymbol{\mu}\in \Mu}{\mathsf{argmax}} \big\langle \boldsymbol \mu, \hat{\nabla}_{\boldsymbol{\mu}}L(\boldsymbol{\theta}_t) \big \rangle - \frac{1}{\beta_t}
  KL(q_m(\boldsymbol{\theta})\|q_m(\boldsymbol \theta_t))
+  \end{align}
  $$
 
 Instead of performing the parameter update on the natural parameter space, we are updating its *dual* - the expectation parameters. The now, interesting the connection is that, the above mirror descent update on the mean parameters, is equivalent to performing natural gradient update on the natural parameters. Mathematically, we write this as
@@ -63,7 +76,9 @@ SGD update given above, therefore, works in the natural parameter space. Note th
 Apart from the above beautiful relations, there exists yet another equivalence for exponential family of distributions as -
 
 $$
+\begin{align}
 \mathbf{F}(\boldsymbol{\theta})^{-1}\nabla_{\boldsymbol{\theta}}L(\boldsymbol{\theta})=\nabla_{\boldsymbol{\mu}}L(\boldsymbol{\mu})
+ \end{align}
 $$
 That is, the natural gradient with respect to $\boldsymbol{\theta}$ is simply the gradient of the loss function with respect to $\boldsymbol{\mu}$.
 
