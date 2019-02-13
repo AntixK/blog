@@ -41,7 +41,7 @@ We rewrite the above maximization problem in terms of the expectation(mean) para
 
 $$
 \begin{align}
-\boldsymbol{\mu}_{t+1} = \underset{\boldsymbol{\mu}\in \Mu}{\mathsf{argmax}} \big\langle \boldsymbol \mu, \hat{\nabla}_{\boldsymbol{\mu}}L(\boldsymbol{\theta}_t) \big \rangle - \frac{1}{\beta_t}
+\boldsymbol{\mu}_{t+1} = \underset{\boldsymbol{\mu}\in M}{\mathsf{argmax}} \big\langle \boldsymbol \mu, \hat{\nabla}_{\boldsymbol{\mu}}L(\boldsymbol{\theta}_t) \big \rangle - \frac{1}{\beta_t}
  KL(q_m(\boldsymbol{\theta})\|q_m(\boldsymbol \theta_t))
   \end{align}
  $$
@@ -50,7 +50,7 @@ Instead of performing the parameter update on the natural parameter space, we ar
 
 $$
 \begin{align}
-\boldsymbol{\mu}_{t+1} &= \underset{\boldsymbol{\mu}\in \Mu}{\mathsf{argmax}} \big\langle \boldsymbol \mu, \hat{\nabla}_{\boldsymbol{\mu}}L(\boldsymbol{\theta}_t) \big \rangle - \frac{1}{\beta_t}
+\boldsymbol{\mu}_{t+1} &= \underset{\boldsymbol{\mu}\in M}{\mathsf{argmax}} \big\langle \boldsymbol \mu, \hat{\nabla}_{\boldsymbol{\mu}}L(\boldsymbol{\theta}_t) \big \rangle - \frac{1}{\beta_t}
  KL(q_m(\boldsymbol{\theta})\|q_m(\boldsymbol \theta_t)) \\
 \boldsymbol{\theta}_{t+1} &= \underset{\boldsymbol{\theta}\in \Theta}{\mathsf{argmax}} \big\langle \boldsymbol \theta, \hat{\nabla}_{\boldsymbol{\theta}}L(\boldsymbol{\theta}_t) \big \rangle - \frac{1}{2\beta_t}
  \| \boldsymbol{\theta} - \boldsymbol{\theta}_t\|_2^2
@@ -65,7 +65,7 @@ SGD update given above, therefore, works in the natural parameter space. Note th
 
 ### Summing Up
 
-|                      |: Gradient Descent         |: Natural Gradient Descent                   |
+|                      | **Gradient Descent**         | **Natural Gradient Descent**                   |
 |--------------------- | ------------------------- | ------------------------------------------ |
 | **Geometry**             | Euclidean Geometry        | Statistical Manifold (Riemannian Geometry) |
 | **Proximity Function**   | Euclidean Norm            | Bergman Divergence (Ex. KL Divergence)     |
