@@ -20,6 +20,7 @@ $$
 \boldsymbol \theta_{t+1} = \boldsymbol \theta_t + \beta_t \hat{\nabla}_{\boldsymbol{\theta}}L(\boldsymbol{\theta}_t)
 \end{align}
 $$
+
 Where $\hat{\nabla}_{\boldsymbol{\theta}}L(\boldsymbol{\theta}_t)$ is the gradient of the loss function with respect to the parameters and $\beta_t$ is the current learning rate. The above SGD update can be reformulated as a local approximation maximization as follows -
 
 $$
@@ -32,11 +33,13 @@ $$
 From a probabilistic perspective, $\boldsymbol \theta$ is the *natural parameter* of the modeling distribution. In other words, the model tries to learn the data using the distribution $q(\boldsymbol{\theta})$, whose natural parameters $\boldsymbol{\theta}$ are learned during training. Intuitively, the above equation is simply a constraint maximization problem with a constraint that $\|\boldsymbol{\theta} - \boldsymbol{\theta_t}\|_2$ is zero, and $-\frac{1}{\beta_t}$ is the Lagrange multiplier. SGD update given above, therefore, works in the natural parameter space. Note that the Euclidean norm in the second term, indicating that the descent happens in the Euclidean space.
 
 Now, The natural gradient update is given by
+
 $$
 \begin{align}
 \boldsymbol \theta_{t+1} = \boldsymbol \theta_t + \frac{1}{\beta_t} \mathbf{F}(\boldsymbol{\theta})^{-1}\hat{\nabla}_{\boldsymbol{\theta}}L(\boldsymbol{\theta}_t)
 \end{align}
 $$
+
 Where $\mathbf{F}$ is the Fisher Information matrix. The gradient scaled by the corresponding Fisher information is called as the natural gradient. 
 
 #### Proximity Function
@@ -49,7 +52,7 @@ We rewrite the above maximization problem in terms of the expectation(mean) para
 
 $$
 \begin{align}
-\boldsymbol{\mu}_{t+1} = \underset{\boldsymbol{\mu}\in \Mu}{\mathsf{argmax}} \big\langle \boldsymbol \mu, \hat{\nabla}_{\boldsymbol{\mu}}L(\boldsymbol{\theta}_t) \big \rangle - \frac{1}{\beta_t}
+\boldsymbol{\mu}_{t+1} = \underset{\boldsymbol{\mu}\in M}{\mathsf{argmax}} \big\langle \boldsymbol \mu, \hat{\nabla}_{\boldsymbol{\mu}}L(\boldsymbol{\theta}_t) \big \rangle - \frac{1}{\beta_t}
  KL(q_m(\boldsymbol{\theta})\|q_m(\boldsymbol \theta_t))
  \end{align}
  $$
@@ -61,7 +64,7 @@ Mirror descent is a framework that accounts for the geometry of the optimization
 
 
 #### Why does this work?
-The main idea behind the above connection is that the Fisher information is the Hessian of the KL divergence between two distributions $q(\boldsymbol{\theta})$ and $q(\boldsymbol{\theta}')$. The proof is quite elaborate and I shall discuss in a subsequent post. Moreover, we can simply rewrite the natural gradient update in equation (), as a maximization problem as follows -
+The main idea behind the above connection is that the Fisher information is the Hessian of the KL divergence between two distributions $q(\boldsymbol{\theta})$ and $q(\boldsymbol{\theta}')$. The proof is quite elaborate and I shall discuss in a subsequent post. Moreover, we can simply rewrite the natural gradient update in equation (3), as a maximization problem as follows -
 
 $$
 \begin{align}
@@ -79,13 +82,15 @@ $$
 \mathbf{F}(\boldsymbol{\theta})^{-1}\nabla_{\boldsymbol{\theta}}L(\boldsymbol{\theta}) = \nabla_{\boldsymbol{\mu}}L(\boldsymbol{\mu}_t)
 \end{align}
 $$
-That is, the natural gradient with respect to $\boldsymbol{\theta}$ is simply the gradient of the loss function with respect to the mean parameters $\boldsymbol{\mu}$.  Now, with the help of the above equation, we can directly perform fast natural gradient descent by the following update
+
+That is, the natural gradient with respect to $\boldsymbol{\theta}$ is simply the gradient of the loss function with respect to the mean parameters $\boldsymbol{\mu}$.  In other words, by combining with equation (4), the natural gradient descent is essentially grasdient descent in mean parameter space. Now, with the help of the above equation, we can directly perform fast natural gradient descent by the following update
 
 $$
 \begin{align}
 \boldsymbol \theta_{t+1} = \boldsymbol \theta_t + \beta_t \hat{\nabla}_{\boldsymbol{\mu}}L(\boldsymbol{\mu}_t)
 \end{align}
-$$
+
+
 
 ### Summing Up
 
@@ -93,12 +98,10 @@ $$
 |--------------------- | ------------------------- | ------------------------------------------ |
 | **Geometry**             | Euclidean Geometry        | Statistical Manifold (Riemannian Geometry) |
 | **Proximity Function**   | Euclidean Norm            | Bergman Divergence (Ex. KL Divergence)     |
-| **Optimization Parameters**  | Natural Parameters $\boldsymbol \theta$ | Mean Parameters $\boldsymbol{\mu}$    |
+| **Gradient Parameters**  | Natural Parameters $\boldsymbol \theta$ | Mean Parameters $\boldsymbol{\mu}$    |
 |======================|===========================|========================= |
 
-
-**Equivalence** : Natural Gradient Descent in $\boldsymbol{\theta}$  $\Leftrightarrow$ Mirror Descent in $\boldsymbol{\mu}$ |
-Natural Gradient in $\boldsymbol{\theta}$ $\Leftrightarrow$ Gradient in $\boldsymbol{\mu}$ |
+**Equivalence** : Natural Gradient in $\boldsymbol{\theta}$ $\Leftrightarrow$ Gradient in $\boldsymbol{\mu}$ |
  
 #### References
 [1] Amari, Shun-ichi, and Scott C. Douglas. "Why natural gradient?." ICASSP. Vol. 98. No. 2. 1998.
