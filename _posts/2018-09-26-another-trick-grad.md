@@ -10,7 +10,7 @@ mathjax: true
 
 I recently came across this elegant trick for computing the gradient of any function written as an expectation with respect to a Multivariate Gaussian distribution, when I was reading about Natural Gradients.
 
-Consider any function $f$ whose expectation is written as a $\mathbb{E}_q[f(\mathbf{k})]$, where $q = N(\mu, \Sigma)$ is a multivariate Gaussian distribution. Firstly, why this peculiar form and when do I need it? The above form is widely used in Machine Learning - especially in variational methods where $f(x)$ is usually the log-likelihood of your model and the standard method to maximize it is by pushing its lower bound(ELBO) using the another distribution $q$ (usually Gaussian).
+Consider any function $f$ whose expectation is written as a $\mathbb{E}_q[f(\mathbf{x})]$, where $q = N(\mu, \Sigma)$ is a multivariate Gaussian distribution. Firstly, why this peculiar form and when do I need it? The above form is widely used in Machine Learning - especially in variational methods where $f(x)$ is usually the log-likelihood of your model and the standard method to maximize it is by pushing its lower bound(ELBO) using the another distribution $q$ (usually Gaussian).
 
 The core idea behind this trick is to write the expectation in terms of the *characteristic function* $G(\mathbf{k})$ of the Gaussian $q$ as
 
