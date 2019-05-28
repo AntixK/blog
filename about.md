@@ -10,6 +10,7 @@ Anand here. I am a Master's Student at Japan Advanced Institute of Science and T
 - **Mean Spectral Normalization of Deep Neural Networks for Embedded Automation**, *Anand Krishnamoorthy Subramanian, Nak Young Chong*. 2019 IEEE 15th International Conference on Automation Science and Engineering (CASE), Vancouver, Canada.
 
   | Paper | [Code](https://github.com/AntixK/mean-spectral-norm) |
+
 #### Tech News
 - Fossbytes | [articles-link](https://fossbytes.com/author/krish-anand/) |
 #### Book(s)
