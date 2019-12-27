@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 Hey there,
-Anand here. I am a Master's Student at Japan Advanced Institute of Science and Technology(JAIST), Japan. I am currently working on Deep Learning - specifically Deep Generative Models and Bayesian Inference.
+Anand here. I am current working as a Research Engineer at NABLAS Inc., Tokyo. Previously, I was a Master's Student at Japan Advanced Institute of Science and Technology(JAIST), Japan. I am currently working on Deep Learning - specifically Deep Generative Models and Bayesian Inference (Well... trying to).
 
 ### Publications
 - **Mean Spectral Normalization of Deep Neural Networks for Embedded Automation**, *Anand Krishnamoorthy Subramanian, Nak Young Chong*. 2019 IEEE 15th International Conference on Automation Science and Engineering (CASE), Vancouver, Canada.
